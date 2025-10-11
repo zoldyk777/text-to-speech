@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Friendly Text-to-Speech</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <main class="wrap" role="main" aria-labelledby="app-title">
+        <header>
+            <div class="title">
+                <div class="logo">TTS</div>
+                <div>
+                    <h1 id="app-title">Friendly Text-to-Speech</h1>
+                    <p class="lead">Type or paste text, pick a voice & tweak controls — then press Play.</p>
+                </div>
+            </div>
+            <div class="meta small">
+                <div id="supportMsg">Checking browser support…</div>
+            </div>
+        </header>
+
+        <section class="main">
+            <label class="small" for="text">Text to speak</label>
+            <textarea id="text" placeholder="Type something to speak..."></textarea>
+
+            <div class="controls">
+                <button id="play" class="btn">▶ Play</button>
+                <button id="pause" class="btn secondary">⏸ Pause</button>
+                <button id="resume" class="btn secondary">▶ Resume</button>
+                <button id="stop" class="btn ghost">⏹ Stop</button>
+                <div style="flex:1"></div>
+                <button id="samples" class="btn secondary">Samples</button>
+                <button id="clear" class="btn secondary">Clear</button>
+            </div>
+
+            <div class="stat">
+                <div>State:</div>
+                <div id="state">idle</div>
+            </div>
+        </section>
+
+        <aside class="panel">
+            <label>Voice & Settings</label>
+            <select id="voiceSelect"></select>
+
+            <label class="small">Rate <span id="rateVal">1</span></label>
+            <input id="rate" type="range" min="0.5" max="2" step="0.1" value="1">
+
+            <label class="small">Pitch <span id="pitchVal">1</span></label>
+            <input id="pitch" type="range" min="0" max="2" step="0.1" value="1">
+
+            <label class="small">Volume <span id="volumeVal">1</span></label>
+            <input id="volume" type="range" min="0" max="1" step="0.05" value="1">
+
+            <label class="small">Presets</label>
+            <div class="preset-grid">
+                <div class="preset" data-rate="1" data-pitch="1" data-volume="1">Default</div>
+                <div class="preset" data-rate="1.2" data-pitch="1.2" data-volume="1">Cheerful</div>
+                <div class="preset" data-rate="0.9" data-pitch="0.8" data-volume="0.9">Calm</div>
+                <div class="preset" data-rate="1.4" data-pitch="0.8" data-volume="1">Excited</div>
+            </div>
+
+            <label class="small">Quick voices</label>
+            <div id="quickVoices" class="row"></div>
+
+            <label class="small">Save preferences</label>
+            <div class="row">
+                <button id="savePrefs" class="btn secondary">Save</button>
+                <button id="loadPrefs" class="btn secondary">Load</button>
+            </div>
+        </aside>
+
+        <footer>
+            <div>Built with Web Speech API • No server required</div>
+            <div>Shortcuts: <b>Enter</b>=Play, <b>Esc</b>=Stop</div>
+        </footer>
+    </main>
+
+    <script src="sc.js"></script>
+</body>
+
+</html>
