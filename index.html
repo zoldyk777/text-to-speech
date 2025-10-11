@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🔊 Text to Speech</h1>
+
+        <textarea id="text-input" placeholder="Type something to speak..."></textarea>
+        <button id="speak-btn">Speak</button>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settings">
+            <h3>Voice & Settings ⚙️</h3>
+            <select id="voice-select"></select>
+
+            <label>Rate</label>
+            <input type="range" id="rate" min="0.5" max="2" value="1" step="0.1">
+
+            <label>Pitch</label>
+            <input type="range" id="pitch" min="0" max="2" value="1" step="0.1">
+
+            <label>Volume</label>
+            <input type="range" id="volume" min="0" max="1" value="1" step="0.1">
+
+            <h4>Presets</h4>
+            <button class="preset" data-rate="1" data-pitch="1" data-volume="1">Default</button>
+            <button class="preset" data-rate="1.2" data-pitch="1.5" data-volume="1">Cheerful</button>
+            <button class="preset" data-rate="0.9" data-pitch="0.8" data-volume="0.9">Calm</button>
+            <button class="preset" data-rate="1.5" data-pitch="1.8" data-volume="1">Excited</button>
+
+            <h4>Preferences</h4>
+            <button id="save">Save</button>
+            <button id="load">Load</button>
+        </div>
+    </div>
+
+    <script src="sc.js"></script>
+</body>
+
+</html>
